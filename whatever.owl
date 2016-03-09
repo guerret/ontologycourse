@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.whatever.com"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.whatever.com"
+     versionIRI="http://www.whatever.com/0.2">
+    <Prefix name="" IRI="http://www.whatever.com/"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="p0" IRI="http://www.semanticweb.org/arianna/ontologies/2016/2/untitled-ontology-3"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="/AdvertisedProduct"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/AdvertisingCompany"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Company"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Controller"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Database"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/EdibleEroticToy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Keywords"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/LegalPerson"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/NaturalPerson"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PersonalData"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ProcessingOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Search"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SearchEngine"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Storage"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Transfer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/WebUser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/WebUserPersonalDetails"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/advertises"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/executesOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasDetails"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasRecipient"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/isComposedOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/isManagedBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/performsProcessing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/performsSearch"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/runsOn"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/uses"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/hasContent"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="/hasName"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="/AdvertisedProduct"/>
+        <Class IRI="/Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/AdvertisingCompany"/>
+        <Class IRI="/Company"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Company"/>
+        <Class IRI="/LegalPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Controller"/>
+        <ObjectUnionOf>
+            <Class IRI="/LegalPerson"/>
+            <Class IRI="/NaturalPerson"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/EdibleEroticToy"/>
+        <Class IRI="/Product"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/LegalPerson"/>
+        <Class IRI="/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/NaturalPerson"/>
+        <Class IRI="/Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Search"/>
+        <Class IRI="/PersonalData"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Storage"/>
+        <Class IRI="/ProcessingOperation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Transfer"/>
+        <Class IRI="/ProcessingOperation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/WebUser"/>
+        <Class IRI="/NaturalPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/WebUserPersonalDetails"/>
+        <Class IRI="/PersonalData"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="/LegalPerson"/>
+        <Class IRI="/NaturalPerson"/>
+    </DisjointClasses>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/advertises"/>
+        <Class IRI="/AdvertisingCompany"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/executesOn"/>
+        <Class IRI="/ProcessingOperation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasDetails"/>
+        <Class IRI="/WebUser"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/hasRecipient"/>
+        <Class IRI="/Transfer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/isComposedOf"/>
+        <Class IRI="/Search"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/isManagedBy"/>
+        <Class IRI="/SearchEngine"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/performsProcessing"/>
+        <Class IRI="/Controller"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/performsSearch"/>
+        <Class IRI="/WebUser"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/runsOn"/>
+        <Class IRI="/Search"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/uses"/>
+        <Class IRI="/ProcessingOperation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/advertises"/>
+        <Class IRI="/AdvertisedProduct"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/executesOn"/>
+        <Class IRI="/Database"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasDetails"/>
+        <Class IRI="/WebUserPersonalDetails"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/hasRecipient"/>
+        <Class IRI="/AdvertisingCompany"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/isComposedOf"/>
+        <ObjectUnionOf>
+            <Class IRI="/Keywords"/>
+            <Class IRI="/WebUserPersonalDetails"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/isManagedBy"/>
+        <Class IRI="/Controller"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/performsProcessing"/>
+        <Class IRI="/ProcessingOperation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/performsSearch"/>
+        <Class IRI="/Search"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/runsOn"/>
+        <Class IRI="/SearchEngine"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/uses"/>
+        <Class IRI="/PersonalData"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="/hasContent"/>
+        <Class IRI="/Keywords"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="/hasName"/>
+        <Class IRI="/Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="/hasContent"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="/hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
