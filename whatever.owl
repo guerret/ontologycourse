@@ -1,14 +1,4 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE Ontology [
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>
-
-
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
      xml:base="http://www.whatever.com"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -29,94 +19,97 @@
         <Class IRI="/AdvertisedProduct"/>
     </Declaration>
     <Declaration>
-        <Class IRI="/AdvertisingCompany"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Company"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Controller"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Database"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/EdibleEroticToy"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Keywords"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/LegalPerson"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/NaturalPerson"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="/Person"/>
     </Declaration>
     <Declaration>
-        <Class IRI="/PersonalData"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/ProcessingOperation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Product"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Search"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/SearchEngine"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="/Storage"/>
+        <ObjectProperty IRI="/isRelatedTo"/>
     </Declaration>
     <Declaration>
         <Class IRI="/Transfer"/>
     </Declaration>
     <Declaration>
-        <Class IRI="/WebUser"/>
+        <Class IRI="/Search"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Company"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/AdvertisingCompany"/>
     </Declaration>
     <Declaration>
         <Class IRI="/WebUserPersonalDetails"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="/advertises"/>
+        <Class IRI="/Storage"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="/executesOn"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/hasDetails"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/hasRecipient"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/isComposedOf"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/isManagedBy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/performsProcessing"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/performsSearch"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="/runsOn"/>
+        <Class IRI="/LegalPerson"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="/uses"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="/runsOn"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/NaturalPerson"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/performsSearch"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/EdibleEroticToy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/isManagedBy"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="/hasContent"/>
     </Declaration>
     <Declaration>
+        <Class IRI="/Database"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasDetails"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/performsProcessing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/hasRecipient"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="/hasName"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/WebUser"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/ProcessingOperation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Controller"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/advertises"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/isComposedOf"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/PersonalData"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Product"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/Keywords"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="/SearchEngine"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="/executesOn"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="/AdvertisedProduct"/>
@@ -173,6 +166,10 @@
         <Class IRI="/LegalPerson"/>
         <Class IRI="/NaturalPerson"/>
     </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="/hasDetails"/>
+        <ObjectProperty IRI="/isRelatedTo"/>
+    </InverseObjectProperties>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="/advertises"/>
         <Class IRI="/AdvertisingCompany"/>
@@ -183,7 +180,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="/hasDetails"/>
-        <Class IRI="/WebUser"/>
+        <Class IRI="/NaturalPerson"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="/hasRecipient"/>
@@ -196,6 +193,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="/isManagedBy"/>
         <Class IRI="/SearchEngine"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="/isRelatedTo"/>
+        <Class IRI="/PersonalData"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="/performsProcessing"/>
@@ -223,7 +224,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="/hasDetails"/>
-        <Class IRI="/WebUserPersonalDetails"/>
+        <Class IRI="/PersonalData"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="/hasRecipient"/>
@@ -239,6 +240,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="/isManagedBy"/>
         <Class IRI="/Controller"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="/isRelatedTo"/>
+        <Class IRI="/NaturalPerson"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="/performsProcessing"/>
@@ -272,9 +277,174 @@
         <DataProperty IRI="/hasName"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/AdvertisedProduct</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Prodotto pubblicizzato</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/AdvertisingCompany</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Società di pubblicità</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Company</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Società</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Controller</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Controllore</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Database</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Base di dati</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/EdibleEroticToy</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Giocattolo erotico commestibile</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Keywords</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Parole chiave</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/LegalPerson</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Persona giuridica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/NaturalPerson</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Persona fisica</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Person</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Persona</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/PersonalData</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dati personali</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ProcessingOperation</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Operazione di trattamento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Product</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Prodotto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Search</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Ricerca</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/SearchEngine</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Motore di ricerca</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Storage</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Memorizzazione</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Transfer</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Trasferimento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>/WebUser</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">is a natural person that can make queries online (search)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/WebUser</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Utente web</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/WebUserPersonalDetails</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dati personali dell&apos;utente</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/advertises</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">pubblicizza</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/executesOn</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">funziona su</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasContent</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ha contenuto</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasDetails</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ha dettagli</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasName</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ha nome</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/hasRecipient</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">ha destinatario</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/isComposedOf</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">è composto da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/isManagedBy</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">è gestito da</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/isRelatedTo</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">è riferito a</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/performsProcessing</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">esegue trattamento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/performsSearch</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">esegue ricerca</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/runsOn</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">effettua su</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/uses</IRI>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">usa</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
 
-<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
 

@@ -1,15 +1,25 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.whatever.com/example/"
-     xml:base="http://www.whatever.com/example/"
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY we "http://www.whatever.com/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="&we;example/"
+     xml:base="&we;example/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:we="http://www.whatever.com/">
-    <owl:Ontology rdf:about="http://www.whatever.com/example">
-        <owl:versionIRI rdf:resource="http://www.whatever.com/example/0.1"/>
-        <owl:imports rdf:resource="http://www.whatever.com/0.2"/>
+    <owl:Ontology rdf:about="&we;example">
+        <owl:imports rdf:resource="&we;0.2"/>
+        <owl:versionIRI rdf:resource="&we;example/0.1"/>
     </owl:Ontology>
     
 
@@ -27,111 +37,112 @@
 
     <!-- http://www.whatever.com/example/anna -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/anna">
-        <rdf:type rdf:resource="http://www.whatever.com/WebUser"/>
-        <we:hasDetails rdf:resource="http://www.whatever.com/example/anna-s-details"/>
+    <owl:NamedIndividual rdf:about="&we;example/anna">
+        <rdf:type rdf:resource="&we;WebUser"/>
         <we:hasName>Anna</we:hasName>
+        <we:hasDetails rdf:resource="&we;example/anna-s-details"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/anna-s-details -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/anna-s-details">
-        <rdf:type rdf:resource="http://www.whatever.com/WebUserPersonalDetails"/>
+    <owl:NamedIndividual rdf:about="&we;example/anna-s-details">
+        <rdf:type rdf:resource="&we;WebUserPersonalDetails"/>
+        <we:isRelatedTo rdf:resource="&we;example/anna"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/anna-s-search -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/anna-s-search">
-        <rdf:type rdf:resource="http://www.whatever.com/Search"/>
-        <we:isComposedOf rdf:resource="http://www.whatever.com/example/anna-s-details"/>
-        <we:isComposedOf rdf:resource="http://www.whatever.com/example/sex-chocolate"/>
-        <we:runsOn rdf:resource="http://www.whatever.com/example/google"/>
+    <owl:NamedIndividual rdf:about="&we;example/anna-s-search">
+        <rdf:type rdf:resource="&we;Search"/>
+        <we:isComposedOf rdf:resource="&we;example/anna-s-details"/>
+        <we:runsOn rdf:resource="&we;example/google"/>
+        <we:isComposedOf rdf:resource="&we;example/sex-chocolate"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/aphrodisia -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/aphrodisia">
-        <rdf:type rdf:resource="http://www.whatever.com/AdvertisingCompany"/>
-        <we:advertises rdf:resource="http://www.whatever.com/example/my-product"/>
+    <owl:NamedIndividual rdf:about="&we;example/aphrodisia">
+        <rdf:type rdf:resource="&we;AdvertisingCompany"/>
         <we:hasName>Aphrodisia</we:hasName>
+        <we:advertises rdf:resource="&we;example/my-product"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/google -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/google">
-        <rdf:type rdf:resource="http://www.whatever.com/SearchEngine"/>
-        <we:isManagedBy rdf:resource="http://www.whatever.com/example/google-inc"/>
+    <owl:NamedIndividual rdf:about="&we;example/google">
+        <rdf:type rdf:resource="&we;SearchEngine"/>
         <we:hasName>Google</we:hasName>
+        <we:isManagedBy rdf:resource="&we;example/google-inc"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/google-inc -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/google-inc">
-        <rdf:type rdf:resource="http://www.whatever.com/Controller"/>
-        <we:performsProcessing rdf:resource="http://www.whatever.com/example/google-s-storage"/>
-        <we:performsProcessing rdf:resource="http://www.whatever.com/example/google-s-transfer"/>
+    <owl:NamedIndividual rdf:about="&we;example/google-inc">
+        <rdf:type rdf:resource="&we;Controller"/>
         <we:hasName>Google Inc.</we:hasName>
+        <we:performsProcessing rdf:resource="&we;example/google-s-storage"/>
+        <we:performsProcessing rdf:resource="&we;example/google-s-transfer"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/google-s-storage -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/google-s-storage">
-        <rdf:type rdf:resource="http://www.whatever.com/Storage"/>
-        <we:executesOn rdf:resource="http://www.whatever.com/example/my-database"/>
-        <we:uses rdf:resource="http://www.whatever.com/example/anna-s-search"/>
+    <owl:NamedIndividual rdf:about="&we;example/google-s-storage">
+        <rdf:type rdf:resource="&we;Storage"/>
+        <we:uses rdf:resource="&we;example/anna-s-search"/>
+        <we:executesOn rdf:resource="&we;example/my-database"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/google-s-transfer -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/google-s-transfer">
-        <rdf:type rdf:resource="http://www.whatever.com/Transfer"/>
-        <we:executesOn rdf:resource="http://www.whatever.com/example/my-database"/>
-        <we:hasRecipient rdf:resource="http://www.whatever.com/example/aphrodisia"/>
-        <we:uses rdf:resource="http://www.whatever.com/example/anna-s-search"/>
+    <owl:NamedIndividual rdf:about="&we;example/google-s-transfer">
+        <rdf:type rdf:resource="&we;Transfer"/>
+        <we:uses rdf:resource="&we;example/anna-s-search"/>
+        <we:hasRecipient rdf:resource="&we;example/aphrodisia"/>
+        <we:executesOn rdf:resource="&we;example/my-database"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/my-database -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/my-database">
-        <rdf:type rdf:resource="http://www.whatever.com/Database"/>
+    <owl:NamedIndividual rdf:about="&we;example/my-database">
+        <rdf:type rdf:resource="&we;Database"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/my-product -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/my-product">
-        <rdf:type rdf:resource="http://www.whatever.com/AdvertisedProduct"/>
-        <rdf:type rdf:resource="http://www.whatever.com/EdibleEroticToy"/>
+    <owl:NamedIndividual rdf:about="&we;example/my-product">
+        <rdf:type rdf:resource="&we;AdvertisedProduct"/>
+        <rdf:type rdf:resource="&we;EdibleEroticToy"/>
     </owl:NamedIndividual>
     
 
 
     <!-- http://www.whatever.com/example/sex-chocolate -->
 
-    <owl:NamedIndividual rdf:about="http://www.whatever.com/example/sex-chocolate">
-        <rdf:type rdf:resource="http://www.whatever.com/Keywords"/>
+    <owl:NamedIndividual rdf:about="&we;example/sex-chocolate">
+        <rdf:type rdf:resource="&we;Keywords"/>
         <we:hasContent>sex chocolate</we:hasContent>
     </owl:NamedIndividual>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
 
